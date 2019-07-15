@@ -4,6 +4,7 @@
  */
 
 // The editor creator to use.
+import LineHeight from 'ckeditor5-line-height-plugin';
 import BalloonEditorBase from '@ckeditor/ckeditor5-editor-balloon/src/ballooneditor';
 
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
@@ -24,7 +25,6 @@ import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
 import fontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 
-import LineHeight from 'ckeditor5-line-height-plugin';
 
 export default class BalloonEditor extends BalloonEditorBase {}
 

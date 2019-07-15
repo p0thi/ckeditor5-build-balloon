@@ -118,14 +118,6 @@
     "@ckeditor/ckeditor5-utils" "^13.0.1"
     lodash-es "^4.17.10"
 
-"@ckeditor/ckeditor5-engine@^11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-engine/-/ckeditor5-engine-11.0.0.tgz#ca3b63d67de222c73388cca71cc007fda033547f"
-  integrity sha512-yH8mLUlrEqAVoFizFLJ0EA1w16d1d5D2Mh0drUkbOOg2iPEJotUjahoVWDy7YsqSuF3DXYJLVoGjBabdSHvPQg==
-  dependencies:
-    "@ckeditor/ckeditor5-utils" "^11.0.0"
-    lodash-es "^4.17.10"
-
 "@ckeditor/ckeditor5-engine@^12.0.0":
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-engine/-/ckeditor5-engine-12.0.0.tgz#89f6adeb36ad21841166af542ba2bb940e065307"
@@ -992,13 +984,12 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-ckeditor5-line-height-plugin@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/ckeditor5-line-height-plugin/-/ckeditor5-line-height-plugin-0.1.0.tgz#44b678a02200221a6f21cf55c0e31bdd16ed6ad1"
-  integrity sha512-vDzL3zBisiuHXQAWqTYecphg0FUuIJ+2t08JuFgXglT/jhJqcW66Dc3cweKQ3qblZbsCdGHmgOPLmSsUQGzRSg==
+ckeditor5-line-height-plugin@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/ckeditor5-line-height-plugin/-/ckeditor5-line-height-plugin-0.1.2.tgz#92c926ff79298f274a4e55f662a6acc846800761"
+  integrity sha512-GyOnbONbP7OMLSQUiKZGUfrqS0spgdRqH7s4HV1sb9X58AB3ogSiBL5C1ww1RI4bXeImTpE/3vJ6hDj7Mo+h7g==
   dependencies:
     "@ckeditor/ckeditor5-core" "^11.0.1"
-    "@ckeditor/ckeditor5-engine" "^11.0.0"
     "@ckeditor/ckeditor5-ui" "^11.1.0"
     "@ckeditor/ckeditor5-utils" "^11.0.0"
 
