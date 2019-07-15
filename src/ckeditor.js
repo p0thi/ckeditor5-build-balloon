@@ -109,19 +109,19 @@ BalloonEditor.defaultConfig = {
 			},
 			{
 				name: 'Größer',
-				size: '1.6em'
+				size: '1.4em'
 			},
 			{
 				name: 'Groß',
-				size: '2.2em'
+				size: '1.8em'
 			},
 			{
 				name: 'Sehr groß',
-				size: '2.8em'
+				size: '2.2em'
 			},
 			{
 				name: 'Riesig',
-				size: '3.4em'
+				size: '2.6em'
 			},
 		].map( item => {
 			return {
