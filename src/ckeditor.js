@@ -89,6 +89,52 @@ BalloonEditor.defaultConfig = {
 			'Eater',
 		]
 	},
+	fontSize: {
+		options: [
+			{
+				name: 'Winzig',
+				size: '0.25em'
+			},
+			{
+				name: 'Sehr Klein',
+				size: '0.5em'
+			},
+			{
+				name: 'Klein',
+				size: '0.75em'
+			},
+			{
+				name: 'Normal',
+				size: '1em'
+			},
+			{
+				name: 'Größer',
+				size: '1.6em'
+			},
+			{
+				name: 'Groß',
+				size: '2.2em'
+			},
+			{
+				name: 'Sehr groß',
+				size: '2.8em'
+			},
+			{
+				name: 'Riesig',
+				size: '3.4em'
+			},
+		].map( item => {
+			return {
+				model: item.name,
+				title: item.name,
+				view: {
+					name: 'span',
+					priority: 7,
+					styles: { 'font-size': item.size }
+				}
+			};
+		} )
+	},
 	lineHeight: {
 		options: [ 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5 ]
 	},
