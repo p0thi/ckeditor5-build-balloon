@@ -25,7 +25,6 @@ import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
 import fontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 
-
 export default class BalloonEditor extends BalloonEditorBase {}
 
 // Plugins to include in the build.
