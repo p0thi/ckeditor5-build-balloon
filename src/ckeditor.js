@@ -4,25 +4,27 @@
  */
 
 // The editor creator to use.
-import BalloonEditorBase from '@ckeditor/ckeditor5-editor-balloon/src/ballooneditor';
+import BalloonEditorBase from '@ckeditor/ckeditor5-editor-balloon/src/ballooneditor'
 
-import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
-import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
-import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
-import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
-import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
-import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
-import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
-import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
-import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
-import Table from '@ckeditor/ckeditor5-table/src/table';
-import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials'
+import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat'
+import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold'
+import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic'
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline'
+import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough'
+import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote'
+import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph'
+import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice'
+import Table from '@ckeditor/ckeditor5-table/src/table'
+import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar'
 
-import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
-import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
-import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
-import fontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
-import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import FontSize from '@ckeditor/ckeditor5-font/src/fontsize'
+import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor'
+import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily'
+import fontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor'
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment'
+
+import LineHeight from 'ckeditor5-line-height-plugin'
 
 export default class BalloonEditor extends BalloonEditorBase {}
 
@@ -44,8 +46,10 @@ BalloonEditor.builtinPlugins = [
 	FontColor,
 	FontFamily,
 	fontBackgroundColor,
-	Alignment
-];
+	Alignment,
+
+	LineHeight
+]
 
 // Editor configuration.
 BalloonEditor.defaultConfig = {
@@ -86,11 +90,16 @@ BalloonEditor.defaultConfig = {
 			'Eater',
 		]
 	},
+	lineHeight: {
+		options: [ 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5]
+	},
 	toolbar: {
 		items: [
-			'fontSize',
 			'fontFamily',
+			'|',
+			'fontSize',
 			'alignment',
+			'lineHeight',
 			'|',
 			'fontColor',
 			'fontBackgroundColor',
@@ -99,8 +108,10 @@ BalloonEditor.defaultConfig = {
 			'italic',
 			'underline',
 			'strikethrough',
+			'|',
 			'blockQuote',
 			'insertTable',
+			'|',
 			'undo',
 			'redo'
 		]
@@ -114,4 +125,4 @@ BalloonEditor.defaultConfig = {
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'de'
-};
+}
