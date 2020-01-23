@@ -4,54 +4,65 @@
  */
 
 // The editor creator to use.
+import LineHeight from 'ckeditor5-line-height-plugin';
 import BalloonEditorBase from '@ckeditor/ckeditor5-editor-balloon/src/ballooneditor';
 
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
-import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
+// import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
-import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
+// import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
-import Heading from '@ckeditor/ckeditor5-heading/src/heading';
+// import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Image from '@ckeditor/ckeditor5-image/src/image';
-import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
-import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
+import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
+import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
+import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 
 import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
-import LineHeight from 'ckeditor5-line-height-plugin';
 
 export default class BalloonEditor extends BalloonEditorBase {}
 
 // Plugins to include in the build.
 BalloonEditor.builtinPlugins = [
 	Essentials,
-	UploadAdapter,
+	// UploadAdapter,
 	Autoformat,
 	Bold,
 	Italic,
-	BlockQuote,
+	Underline,
 	CKFinder,
-	EasyImage,
-	Heading,
+	// EasyImage,
+
+	FontSize,
+	FontColor,
+	FontFamily,
+	FontBackgroundColor,
+	Alignment,
+
 	Image,
-	ImageCaption,
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
+	ImageResize,
+
 	Indent,
-	Link,
 	List,
 	MediaEmbed,
 	Paragraph,
@@ -59,24 +70,113 @@ BalloonEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 
-
 	LineHeight,
 	Base64UploadAdapter,
 ];
 
 // Editor configuration.
 BalloonEditor.defaultConfig = {
+	fontColor: {
+		colors: [
+			{
+				color: 'black',
+				label: 'Schwarz'
+			},
+			{
+				color: 'white',
+				label: 'Weiß',
+				hasBorder: true
+			},
+			{
+				color: '#d4003c',
+				label: 'Rot'
+			},
+			{
+				color: '#f99e1d',
+				label: 'Orange'
+			},
+			{
+				color: 'grey',
+				label: 'Grau'
+			}
+		],
+		documentColors: 0
+	},
+	fontFamily: {
+		options: [
+			'Roboto',
+			'Amatic SC',
+			'Permanent Marker',
+			'Fredericka the Great',
+			'Londrina Sketch',
+			'Henny Penny',
+			'Eater',
+		]
+	},
+	fontSize: {
+		options: [
+			{
+				name: 'Winzig',
+				size: '0.25em'
+			},
+			{
+				name: 'Sehr Klein',
+				size: '0.5em'
+			},
+			{
+				name: 'Klein',
+				size: '0.75em'
+			},
+			{
+				name: 'Normal',
+				size: '1em'
+			},
+			{
+				name: 'Größer',
+				size: '1.4em'
+			},
+			{
+				name: 'Groß',
+				size: '1.8em'
+			},
+			{
+				name: 'Sehr groß',
+				size: '2.2em'
+			},
+			{
+				name: 'Riesig',
+				size: '2.6em'
+			},
+		].map( item => {
+			return {
+				model: item.name,
+				title: item.name,
+				view: {
+					name: 'span',
+					priority: 7,
+					styles: { 'font-size': item.size }
+				}
+			};
+		} )
+	},
 	lineHeight: {
 		options: [ 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5 ]
 	},
 	toolbar: {
 		items: [
-			'heading',
+			'fontFamily',
+			'|',
+			'fontSize',
+			'alignment',
 			'lineHeight',
+			'|',
+			'fontColor',
+			'fontBackgroundColor',
 			'|',
 			'bold',
 			'italic',
-			'link',
+			'underline',
+			'|',
 			'bulletedList',
 			'numberedList',
 			'|',
@@ -84,9 +184,9 @@ BalloonEditor.defaultConfig = {
 			'outdent',
 			'|',
 			'imageUpload',
-			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
+			'|',
 			'undo',
 			'redo'
 		]
@@ -95,8 +195,6 @@ BalloonEditor.defaultConfig = {
 		toolbar: [
 			'imageStyle:full',
 			'imageStyle:side',
-			'|',
-			'imageTextAlternative'
 		]
 	},
 	table: {
