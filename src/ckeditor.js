@@ -184,7 +184,6 @@ BalloonEditor.defaultConfig = {
 	fontFamily: {
 		options: [
 			'default',
-			'Work Sans',
 			'Roboto',
 			'Chewy',
 			'Amatic SC',
@@ -229,7 +228,7 @@ BalloonEditor.defaultConfig = {
 				name: 'Riesig',
 				size: '2.6em'
 			},
-		].map(item => {
+		].map( item => {
 			return {
 				model: item.name,
 				title: item.name,
@@ -239,10 +238,10 @@ BalloonEditor.defaultConfig = {
 					styles: { 'font-size': item.size }
 				}
 			};
-		})
+		} )
 	},
 	lineHeight: {
-		options: [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5]
+		options: [ 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5 ]
 	},
 	toolbar: {
 		items: [
