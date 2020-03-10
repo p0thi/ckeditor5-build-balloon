@@ -37,7 +37,7 @@ import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 
 import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
 
-export default class BalloonEditor extends BalloonEditorBase {}
+export default class BalloonEditor extends BalloonEditorBase { }
 
 // Plugins to include in the build.
 BalloonEditor.builtinPlugins = [
@@ -102,9 +102,91 @@ BalloonEditor.defaultConfig = {
 		],
 		documentColors: 0
 	},
+	fontBackgroundColor: {
+		colors: [
+			{
+				color: 'black',
+				label: 'Schwarz'
+			},
+			{
+				color: 'white',
+				label: 'Weiß',
+				hasBorder: true
+			},
+			{
+				color: '#d4003c',
+				label: 'Rot'
+			},
+			{
+				color: '#f99e1d',
+				label: 'Orange'
+			},
+			{
+				color: 'grey',
+				label: 'Grau'
+			},
+			{
+				color: 'Brown',
+				label: 'Braun'
+			},
+			{
+				color: 'DarkBlue',
+				label: 'Dunkelblau'
+			},
+			{
+				color: 'Gold',
+				label: 'Gold'
+			},
+			{
+				color: 'Indigo',
+				label: 'Indigo'
+			},
+			{
+				color: 'LightGrey',
+				label: 'Hellgrau'
+			},
+			{
+				color: 'Navy',
+				label: 'Navy'
+			},
+			{
+				color: 'SeaGreen',
+				label: 'Meergrün'
+			},
+			{
+				color: 'RoyalBlue',
+				label: 'Königsblau'
+			},
+			{
+				color: 'PaleGreen',
+				label: 'Blassgrün'
+			},
+			{
+				color: 'LimeGreen',
+				label: 'Limette'
+			},
+			{
+				color: 'Green',
+				label: 'Grün'
+			},
+			{
+				color: 'FireBrick',
+				label: 'Feuer'
+			},
+			{
+				color: 'Yellow',
+				label: 'Gelb'
+			},
+		],
+		columns: 5,
+		documentColors: 0
+	},
 	fontFamily: {
 		options: [
+			'default',
+			'Work Sans',
 			'Roboto',
+			'Chewy',
 			'Amatic SC',
 			'Permanent Marker',
 			'Fredericka the Great',
@@ -147,7 +229,7 @@ BalloonEditor.defaultConfig = {
 				name: 'Riesig',
 				size: '2.6em'
 			},
-		].map( item => {
+		].map(item => {
 			return {
 				model: item.name,
 				title: item.name,
@@ -157,10 +239,10 @@ BalloonEditor.defaultConfig = {
 					styles: { 'font-size': item.size }
 				}
 			};
-		} )
+		})
 	},
 	lineHeight: {
-		options: [ 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5 ]
+		options: [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5]
 	},
 	toolbar: {
 		items: [
@@ -193,8 +275,16 @@ BalloonEditor.defaultConfig = {
 	},
 	image: {
 		toolbar: [
-			'imageStyle:full',
-			'imageStyle:side',
+			'imageStyle:left', 'imageStyle:full', 'imageStyle:right',
+		],
+		styles: [
+			{ name: 'left', icon: 'left', title: 'My side style', className: 'image-style-align-left' },
+			// This will only customize the icon of the "full" style.
+			// Note: 'right' is one of default icons provided by the feature.
+			{ name: 'full', icon: 'full' },
+
+			// This will customize the icon, title and CSS class of the default "side" style.
+			{ name: 'right', icon: 'right', title: 'My side style', className: 'image-style-align-right' }
 		]
 	},
 	table: {
