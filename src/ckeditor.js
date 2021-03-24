@@ -1,57 +1,76 @@
 /**
- * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2014-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
-
-// The editor creator to use.
+import BalloonEditor from '@ckeditor/ckeditor5-editor-balloon/src/ballooneditor.js';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment.js';
+import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage.js';
+import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
+import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
+import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
+import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
+import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor.js';
+import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor.js';
+import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily.js';
+import FontSize from '@ckeditor/ckeditor5-font/src/fontsize.js';
+import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
+import Image from '@ckeditor/ckeditor5-image/src/image.js';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
+import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
+import Indent from '@ckeditor/ckeditor5-indent/src/indent.js';
+import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock.js';
+import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic.js';
+import Link from '@ckeditor/ckeditor5-link/src/link.js';
+import List from '@ckeditor/ckeditor5-list/src/list.js';
+import ListStyle from '@ckeditor/ckeditor5-list/src/liststyle.js';
+import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
+import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
+import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
+import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough.js';
 import LineHeight from 'ckeditor5-line-height-plugin';
-import BalloonEditorBase from '@ckeditor/ckeditor5-editor-balloon/src/ballooneditor';
+import Table from '@ckeditor/ckeditor5-table/src/table.js';
+import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
+import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice.js';
 
-import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
-import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
-import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
-import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
-import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
-import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
-import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
-import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
-import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
-import Table from '@ckeditor/ckeditor5-table/src/table';
-import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
-
-import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
-import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
-import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
-import fontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
-import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
-
-export default class BalloonEditor extends BalloonEditorBase {}
+class Editor extends BalloonEditor {}
 
 // Plugins to include in the build.
-BalloonEditor.builtinPlugins = [
-	Essentials,
+Editor.builtinPlugins = [
+	Alignment,
+	AutoImage,
 	Autoformat,
+	BlockQuote,
 	Bold,
+	Essentials,
+	FontBackgroundColor,
+	FontColor,
+	FontFamily,
+	FontSize,
+	Heading,
+	Image,
+	ImageResize,
+	ImageStyle,
+	Indent,
+	IndentBlock,
 	Italic,
+	Link,
+	List,
+	ListStyle,
+	MediaEmbed,
+	Paragraph,
+	TextTransformation,
+
 	Underline,
 	Strikethrough,
-	BlockQuote,
-	Paragraph,
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-
-	FontSize,
-	FontColor,
-	FontFamily,
-	fontBackgroundColor,
-	Alignment,
-
+	//
 	LineHeight
 ];
 
-// Editor configuration.
-BalloonEditor.defaultConfig = {
+Editor.defaultConfig = {
 	fontColor: {
 		colors: [
 			{
@@ -86,7 +105,7 @@ BalloonEditor.defaultConfig = {
 			'Fredericka the Great',
 			'Londrina Sketch',
 			'Henny Penny',
-			'Eater',
+			'Eater'
 		]
 	},
 	fontSize: {
@@ -122,7 +141,7 @@ BalloonEditor.defaultConfig = {
 			{
 				name: 'Riesig',
 				size: '2.6em'
-			},
+			}
 		].map( item => {
 			return {
 				model: item.name,
@@ -156,6 +175,7 @@ BalloonEditor.defaultConfig = {
 			'|',
 			'blockQuote',
 			'insertTable',
+			'mediaEmbed',
 			'|',
 			'undo',
 			'redo'
@@ -171,3 +191,5 @@ BalloonEditor.defaultConfig = {
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'de'
 };
+
+export default Editor;
