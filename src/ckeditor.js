@@ -29,8 +29,14 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough.js';
 import LineHeight from 'ckeditor5-line-height-plugin';
-import Table from '@ckeditor/ckeditor5-table/src/table.js';
+import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
+import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
+import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
+// import Table from '@ckeditor/ckeditor5-table/src/table';
+// import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
+// import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
+// import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice.js';
 
 class Editor extends BalloonEditor {}
@@ -66,6 +72,8 @@ Editor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
+	TableProperties,
+	TableCellProperties,
 	//
 	LineHeight
 ];
@@ -99,7 +107,9 @@ Editor.defaultConfig = {
 	},
 	fontFamily: {
 		options: [
+			'default',
 			'Roboto',
+			'Chewy',
 			'Amatic SC',
 			'Permanent Marker',
 			'Fredericka the Great',
@@ -121,6 +131,10 @@ Editor.defaultConfig = {
 			{
 				name: 'Klein',
 				size: '0.75em'
+			},
+			{
+				name: 'Kleiner',
+				size: '0.85em'
 			},
 			{
 				name: 'Normal',
@@ -186,7 +200,9 @@ Editor.defaultConfig = {
 		contentToolbar: [
 			'tableColumn',
 			'tableRow',
-			'mergeTableCells'
+			'mergeTableCells',
+			'tableProperties',
+			'tableCellProperties'
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
